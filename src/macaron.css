@@ -1,0 +1,70 @@
+:root {
+    --thorns-accent-purple: #d895ee;
+    --thorns-accent-pink: #ee95d2;
+
+    --thorns-bg0: #151515;
+    --thorns-bg1: #505050;
+
+    --thorns-fg0: #909090;
+    --thorns-fg1: #d8d0d5;
+
+    --thorns-red: #ee9598;
+    --thorns-orange: #e8b197;
+    --thorns-yellow: #e8d097;
+    --thorns-green: #9be099;
+    --thorns-cyan: #97d0e8;
+    --thorns-blue: #979ae8;
+    --thorns-purple: #ca97e8;
+
+    --thorns-dim-red: #c76f72;
+    --thorns-dim-orange: #c18b72;
+    --thorns-dim-yellow: #c1a972;
+    --thorns-dim-green: #77b975;
+    --thorns-dim-cyan: #72a9c1;
+    --thorns-dim-blue: #7275c1;
+    --thorns-dim-purple: #a372c1;
+}
+
+:root {
+    --macaron-font: inherit;
+
+    --macaron-info: var(--thorns-accent-purple);
+    --macaron-success: var(--thorns-green);
+    --macaron-error: var(--thorns-red);
+    --macaron-warn: var(--thorns-yellow);
+
+    --macaron-bg: var(--thorns-bg0);
+    --macaron-fg: var(--thorns-fg1);
+}
+
+.macaron {
+    position: fixed;
+    z-index: 100;
+    top: 15px;
+    right: 15px;
+    max-width: 350px;
+    min-width: 160px;
+    border: 2px solid;
+    padding: 8px 12px;
+    font-size: 14px;
+    word-wrap: break-word;
+    font-family: var(--macaron-font);
+    background-color: var(--macaron-bg);
+    color: var(--macaron-fg);
+}
+
+.macaron-info {
+    border-color: var(--macaron-info);
+}
+
+.macaron-success {
+    border-color: var(--macaron-success);
+}
+
+.macaron-error {
+    border-color: var(--macaron-error);
+}
+
+.macaron-warn {
+    border-color: var(--macaron-warn);
+}

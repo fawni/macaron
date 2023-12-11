@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>macaron</title>
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>"
+        />
+
+        <link rel="stylesheet" type="text/css" href="../src/macaron.css" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/sakura.css/css/sakura-dark.css"
+            type="text/css"
+        />
+        <style>
+            body,
+            h1,
+            input,
+            button {
+                font-family: "Nunito", sans-serif;
+            }
+
+            button {
+                font-weight: bold;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>macaron 🍩</h1>
+        <div>small macaron demo</div>
+        <div>
+            <input type="text" id="message" placeholder="message" />
+        </div>
+
+        <button
+            onclick="info(document.getElementById('message').value || 'this is a macaron')"
+        >
+            info
+        </button>
+        <button
+            onclick="success(document.getElementById('message').value || 'this is a macaron')"
+        >
+            success
+        </button>
+        <button
+            onclick="warn(document.getElementById('message').value || 'this is a macaron')"
+        >
+            warn
+        </button>
+        <button
+            onclick="error(document.getElementById('message').value || 'this is a macaron')"
+        >
+            error
+        </button>
+
+        <script src="../dist/index.js" type="text/javascript"></script>
+    </body>
+</html>

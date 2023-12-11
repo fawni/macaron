@@ -1,0 +1,14 @@
+{
+    "name": "macaron",
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "author": "fawn <fawn@rinici.de>",
+    "scripts": {
+        "build": "esbuild src/index.ts --outdir=dist --format=esm"
+    },
+    "devDependencies": {
+        "@types/node": "^20.10.4",
+        "esbuild": "^0.19.9",
+        "tsx": "^4.6.2"
+    }
+}

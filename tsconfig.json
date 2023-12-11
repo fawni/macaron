@@ -1,0 +1,10 @@
+{
+    "include": ["**/*"],
+    "compilerOptions": {
+        "strict": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "target": "esnext"
+    }
+}
