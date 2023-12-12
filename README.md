@@ -4,6 +4,7 @@ minimalistic toast notifications
 
 ## todo
 
+- [ ] actual design
 - [ ] show multiple macarons at once (container)
 - [ ] simple config for the things that can't be customized with css
 
