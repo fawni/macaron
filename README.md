@@ -4,9 +4,10 @@ minimalistic toast notifications
 
 ## todo
 
+- [x] simple customization options for the things that can't be customized with css
 - [ ] actual design
 - [ ] show multiple macarons at once (container)
-- [ ] simple config for the things that can't be customized with css
+- [ ] option overrides for each macaron
 
 ## license
 
