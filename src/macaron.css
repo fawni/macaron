@@ -28,43 +28,76 @@
 :root {
     --macaron-font: inherit;
 
+    --macaron-bg: var(--thorns-bg0);
+    --macaron-fg: var(--thorns-fg1);
+    --macaron-shadow: var(--thorns-bg0);
+
     --macaron-info: var(--thorns-accent-purple);
     --macaron-success: var(--thorns-green);
     --macaron-error: var(--thorns-red);
     --macaron-warn: var(--thorns-yellow);
-
-    --macaron-bg: var(--thorns-bg0);
-    --macaron-fg: var(--thorns-fg1);
 }
 
-.macaron {
+#macaron-container {
     position: fixed;
     z-index: 100;
     top: 15px;
     right: 15px;
     max-width: 350px;
+    margin-bottom: 12px;
+    align-items: start;
+}
+
+#macaron {
+    width: fit-content;
+    float: right;
     min-width: 160px;
     border: 2px solid;
     padding: 8px 12px;
+    margin-bottom: 12px;
     font-size: 14px;
     word-wrap: break-word;
+
+    transition: margin-right 2s ease-in-out;
+
     font-family: var(--macaron-font);
     background-color: var(--macaron-bg);
     color: var(--macaron-fg);
+    box-shadow: 6px 6px var(--macaron-shadow);
 }
 
-.macaron-info {
+#macaron.macaron-info {
     border-color: var(--macaron-info);
 }
 
-.macaron-success {
+#macaron.macaron-info::selection {
+    color: var(--macaron-bg);
+    background-color: var(--macaron-info);
+}
+
+#macaron.macaron-success {
     border-color: var(--macaron-success);
 }
 
-.macaron-error {
+#macaron.macaron-success::selection {
+    color: var(--macaron-bg);
+    background-color: var(--macaron-success);
+}
+
+#macaron.macaron-error {
     border-color: var(--macaron-error);
 }
 
-.macaron-warn {
+#macaron.macaron-error::selection {
+    color: var(--macaron-bg);
+    background-color: var(--macaron-error);
+}
+
+#macaron.macaron-warn {
     border-color: var(--macaron-warn);
+}
+
+#macaron.macaron-warn::selection {
+    color: var(--macaron-bg);
+    background-color: var(--macaron-warn);
 }

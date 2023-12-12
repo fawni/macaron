@@ -1,77 +1,92 @@
-const enum MacaronType {
+interface Macaron {
+    message: string;
+    type: Type;
+    options?: Options;
+}
+
+interface Options {
+    timeout?: number;
+    action?: () => void;
+}
+
+const enum Type {
     Info,
     Success,
     Error,
     Warn,
 }
 
-interface Macaron {
-    message: string;
-    type: MacaronType;
-    action?(): void;
+let defaultTimeout = 3 * 1000;
+
+export const Classes = {
+    [Type.Info]: "macaron-info",
+    [Type.Success]: "macaron-success",
+    [Type.Error]: "macaron-error",
+    [Type.Warn]: "macaron-warn",
+};
+
+export function setDefaultTimeout(duration: number) {
+    defaultTimeout = duration;
 }
 
-const macaron = {
-    Classes: {
-        [MacaronType.Info]: "macaron-info",
-        [MacaronType.Success]: "macaron-success",
-        [MacaronType.Error]: "macaron-error",
-        [MacaronType.Warn]: "macaron-warn",
-    },
+export function doAction(element: Element, macaron: Macaron) {
+    if (macaron.options?.action) {
+        macaron.options?.action();
+    }
+    element.remove();
+}
 
-    timeout: 2 * 1000,
+export function info(message: string, options?: Options) {
+    return show({
+        message,
+        type: Type.Info,
+        options,
+    });
+}
 
-    setTimeout: function (duration: number) {
-        this.timeout = duration;
-    },
+export function success(message: string, options?: Options) {
+    return show({
+        message,
+        type: Type.Success,
+        options,
+    });
+}
 
-    doAction: function (element: Element, cfg: Macaron) {
-        if (cfg.action) {
-            cfg.action();
-            element.remove();
-        } else {
-            element.remove();
-        }
-    },
+export function warn(message: string, options?: Options) {
+    return show({
+        message,
+        type: Type.Warn,
+        options,
+    });
+}
 
-    info: function (message: string, action?: () => void) {
-        return this.show({
-            message: message,
-            type: MacaronType.Info,
-            action: action,
-        });
-    },
+export function error(message: string, options?: Options) {
+    return show({
+        message,
+        type: Type.Error,
+        options,
+    });
+}
 
-    success: function (message: string, action?: () => void) {
-        return this.show({
-            message: message,
-            type: MacaronType.Success,
-            action: action,
-        });
-    },
-
-    warn: function (message: string, action?: () => void) {
-        return this.show({
-            message: message,
-            type: MacaronType.Warn,
-            action: action,
-        });
-    },
-
-    error: function (message: string, action?: () => void) {
-        return this.show({
-            message: message,
-            type: MacaronType.Error,
-            action: action,
-        });
-    },
-
-    show: function (cfg: Macaron) {
-        const elem = document.createElement("div");
-        elem.innerText = cfg.message;
-        elem.classList.add("macaron", this.Classes[cfg.type]);
-        elem.onclick = () => this.doAction(elem, cfg);
-        document.body.appendChild(elem);
-        setTimeout(() => elem.remove(), this.timeout);
-    },
-};
+export function show(macaron: Macaron) {
+    const container =
+        document.getElementById("macaron-container") ??
+        document.body.appendChild(document.createElement("div"));
+    container.id = "macaron-container";
+    const element = document.createElement("div");
+    element.innerText = macaron.message;
+    element.id = "macaron";
+    element.classList.add("macaron", Classes[macaron.type]);
+    element.onclick = () => doAction(element, macaron);
+    element.onmouseover = () => clearTimeout(timeout);
+    element.onmouseout = () =>
+        (timeout = setTimeout(
+            () => element.remove(),
+            macaron.options?.timeout ?? defaultTimeout
+        ));
+    container.appendChild(element);
+    let timeout = setTimeout(
+        () => element.remove(),
+        macaron.options?.timeout ?? defaultTimeout
+    );
+}
