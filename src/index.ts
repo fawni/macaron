@@ -32,6 +32,7 @@ function show(message: string, style: Style) {
     const macaron = document.createElement("div");
     macaron.innerText = message;
     macaron.classList.add("macaron", Classes[style])
+    macaron.onclick = () => macaron.remove();
     document.body.appendChild(macaron);
     setTimeout(() => macaron.remove(), 2 * 1000);
 }
