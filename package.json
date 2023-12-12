@@ -1,5 +1,5 @@
 {
-    "name": "macaron",
+    "name": "@twinking/macaron",
     "version": "0.1.0",
     "license": "Apache-2.0",
     "author": "fawn <fawn@rinici.de>",
