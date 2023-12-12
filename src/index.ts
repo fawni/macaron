@@ -1,38 +1,77 @@
-enum Style {
+const enum MacaronType {
     Info,
     Success,
     Error,
     Warn,
 }
 
-const Classes = {
-    [Style.Info]: "macaron-info",
-    [Style.Success]: "macaron-success",
-    [Style.Error]: "macaron-error",
-    [Style.Warn]: "macaron-warn"
+interface Macaron {
+    message: string;
+    type: MacaronType;
+    action?(): void;
 }
 
-function info(message: string) {
-    show(message, Style.Info)
-}
+const macaron = {
+    Classes: {
+        [MacaronType.Info]: "macaron-info",
+        [MacaronType.Success]: "macaron-success",
+        [MacaronType.Error]: "macaron-error",
+        [MacaronType.Warn]: "macaron-warn",
+    },
 
-function success(message: string) {
-    show(message, Style.Success)
-}
+    timeout: 2 * 1000,
 
-function error(message: string) {
-    show(message, Style.Error)
-}
+    setTimeout: function (duration: number) {
+        this.timeout = duration;
+    },
 
-function warn(message: string) {
-    show(message, Style.Warn)
-}
+    doAction: function (element: Element, cfg: Macaron) {
+        if (cfg.action) {
+            cfg.action();
+            element.remove();
+        } else {
+            element.remove();
+        }
+    },
 
-function show(message: string, style: Style) {
-    const macaron = document.createElement("div");
-    macaron.innerText = message;
-    macaron.classList.add("macaron", Classes[style])
-    macaron.onclick = () => macaron.remove();
-    document.body.appendChild(macaron);
-    setTimeout(() => macaron.remove(), 2 * 1000);
-}
+    info: function (message: string, action?: () => void) {
+        return this.show({
+            message: message,
+            type: MacaronType.Info,
+            action: action,
+        });
+    },
+
+    success: function (message: string, action?: () => void) {
+        return this.show({
+            message: message,
+            type: MacaronType.Success,
+            action: action,
+        });
+    },
+
+    warn: function (message: string, action?: () => void) {
+        return this.show({
+            message: message,
+            type: MacaronType.Warn,
+            action: action,
+        });
+    },
+
+    error: function (message: string, action?: () => void) {
+        return this.show({
+            message: message,
+            type: MacaronType.Error,
+            action: action,
+        });
+    },
+
+    show: function (cfg: Macaron) {
+        const elem = document.createElement("div");
+        elem.innerText = cfg.message;
+        elem.classList.add("macaron", this.Classes[cfg.type]);
+        elem.onclick = () => this.doAction(elem, cfg);
+        document.body.appendChild(elem);
+        setTimeout(() => elem.remove(), this.timeout);
+    },
+};

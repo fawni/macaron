@@ -27,31 +27,53 @@
         </style>
     </head>
     <body>
+        <script src="../dist/index.js" type="text/javascript"></script>
         <h1>macaron 🍩</h1>
         <div>small macaron demo</div>
+
+        <br />
+        <hr />
+        <br />
+
         <div>
             <input type="text" id="message" placeholder="message" />
         </div>
 
         <button
-            onclick="info(document.getElementById('message').value || 'this is a macaron')"
+            onclick="macaron.info(document.getElementById('message').value || 'this is a macaron')"
         >
             info
         </button>
         <button
-            onclick="success(document.getElementById('message').value || 'this is a macaron')"
+            onclick="macaron.success(document.getElementById('message').value || 'this is a macaron')"
         >
             success
         </button>
         <button
-            onclick="warn(document.getElementById('message').value || 'this is a macaron')"
+            onclick="macaron.warn(document.getElementById('message').value || 'this is a macaron')"
         >
             warn
         </button>
         <button
-            onclick="error(document.getElementById('message').value || 'this is a macaron')"
+            onclick="macaron.error(document.getElementById('message').value || 'this is a macaron', () => {console.log('bad boy!')})"
         >
             error
+        </button>
+
+        <br />
+        <br />
+
+        <div>
+            <input
+                type="number"
+                id="timeout"
+                placeholder="timeout (milliseconds)"
+            />
+        </div>
+        <button
+            onclick="macaron.setTimeout(document.getElementById('timeout').value || 2 * 1000)"
+        >
+            done
         </button>
 
         <script src="../dist/index.js" type="text/javascript"></script>
