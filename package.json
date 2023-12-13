@@ -1,13 +1,13 @@
 {
     "name": "@twinking/macaron",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "license": "Apache-2.0",
     "author": "fawn <fawn@rinici.de>",
     "contributors": [
         "rini <rini@rinici.de>"
     ],
     "scripts": {
-        "sass": "sass --no-source-map src:dist",
+        "sass": "sass --no-source-map src:dist --style compressed",
         "build": "esbuild src/macaron.ts --minify --bundle --outdir=dist --global-name=macaron",
         "bundle": "pnpm build && pnpm sass"
     },
