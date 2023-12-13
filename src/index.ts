@@ -29,11 +29,16 @@ export function setDefaultTimeout(duration: number) {
     defaultTimeout = duration;
 }
 
-export function doAction(element: Element, macaron: Macaron) {
+export function doAction(element: HTMLElement, macaron: Macaron) {
     if (macaron.options?.action) {
         macaron.options?.action();
     }
-    element.remove();
+    kill(element);
+}
+
+function kill(element: HTMLElement) {
+    element.style.opacity = "0";
+    setTimeout(() => element.remove(), 400);
 }
 
 export function info(message: string, options?: Options) {
@@ -86,7 +91,7 @@ export function show(macaron: Macaron) {
         ));
     container.appendChild(element);
     let timeout = setTimeout(
-        () => element.remove(),
+        () => kill(element),
         macaron.options?.timeout ?? defaultTimeout
     );
 }

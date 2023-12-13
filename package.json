@@ -10,8 +10,6 @@
         "build": "esbuild src/index.ts --minify --bundle --outdir=dist --global-name=macaron"
     },
     "devDependencies": {
-        "@types/node": "^20.10.4",
-        "esbuild": "^0.19.9",
-        "tsx": "^4.6.2"
+        "esbuild": "^0.19.9"
     }
 }
