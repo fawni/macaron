@@ -17,7 +17,7 @@ minimalistic toast notifications
 3. use macaron
 
 ```js
-macaron.success("hello from macaron!")
+macaron.success("hello from macaron!");
 macaron.warn("do NOT touch my macarons");
 ```
 
