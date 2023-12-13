@@ -2,13 +2,26 @@
 
 minimalistic toast notifications
 
-## todo
+## usage
 
-- [x] simple customization options for the things that can't be customized with css
-- [ ] ~~actual design~~ _poke_
-- [x] show multiple macarons at once (container)
-- [x] option overrides for each macaron
-- [x] pause timer when mouse is hovered over a macaron
+1. link to `macaron.css`:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@twinking/macaron/src/macaron.css" type="text/css"/>
+```
+2. link to `macaron.js`
+
+```html
+<script src="https://unpkg.com/@twinking/macaron/dist/macaron.js" type="text/javascript"></script>
+```
+3. use macaron
+
+```js
+macaron.success("hello from macaron!")
+macaron.warn("do NOT touch my macarons");
+```
+
+refer to the [demo](demo/index.html) for more info.
 
 ## license
 
