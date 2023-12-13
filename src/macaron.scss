@@ -49,36 +49,36 @@
 
 #macaron.macaron-info {
     border-color: var(--macaron-info);
-}
 
-#macaron.macaron-info::selection {
-    color: var(--macaron-bg);
-    background-color: var(--macaron-info);
+    &::selection {
+        color: var(--macaron-bg);
+        background-color: var(--macaron-info);
+    }
 }
 
 #macaron.macaron-success {
     border-color: var(--macaron-success);
-}
 
-#macaron.macaron-success::selection {
-    color: var(--macaron-bg);
-    background-color: var(--macaron-success);
+    &::selection {
+        color: var(--macaron-bg);
+        background-color: var(--macaron-success);
+    }
 }
 
 #macaron.macaron-error {
     border-color: var(--macaron-error);
-}
 
-#macaron.macaron-error::selection {
-    color: var(--macaron-bg);
-    background-color: var(--macaron-error);
+    &::selection {
+        color: var(--macaron-bg);
+        background-color: var(--macaron-error);
+    }
 }
 
 #macaron.macaron-warn {
     border-color: var(--macaron-warn);
-}
 
-#macaron.macaron-warn::selection {
-    color: var(--macaron-bg);
-    background-color: var(--macaron-warn);
+    &::selection {
+        color: var(--macaron-bg);
+        background-color: var(--macaron-warn);
+    }
 }

@@ -7,7 +7,7 @@ minimalistic toast notifications
 1. link to `macaron.css`:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@twinking/macaron/src/macaron.css" type="text/css"/>
+<link rel="stylesheet" href="https://unpkg.com/@twinking/macaron/dist/macaron.css" type="text/css"/>
 ```
 2. link to `macaron.js`
 

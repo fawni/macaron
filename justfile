@@ -4,7 +4,7 @@ _default:
     @just --list
 
 build:
-    pnpm build
+    pnpm bundle
 
 watch:
     pnpm build --watch
