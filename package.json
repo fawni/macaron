@@ -1,13 +1,13 @@
 {
     "name": "@twinking/macaron",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "Apache-2.0",
     "author": "fawn <fawn@rinici.de>",
     "contributors": [
         "rini <rini@rinici.de>"
     ],
     "scripts": {
-        "build": "esbuild src/index.ts --minify --bundle --outdir=dist --global-name=macaron"
+        "build": "esbuild src/index.ts --minify --bundle --outfile=dist/macaron.js --global-name=macaron"
     },
     "devDependencies": {
         "esbuild": "^0.19.9"
