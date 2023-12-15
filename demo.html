@@ -37,7 +37,7 @@
 
             input,
             button {
-                border: none;
+                border: 1px solid transparent;
                 font-family: inherit;
                 font-weight: bold;
                 padding: 0.25em 0.5em;
@@ -45,6 +45,11 @@
                 background: #202020;
                 color: inherit;
                 margin: 0.1em 0;
+            }
+
+            input:focus {
+                border: 1px solid #9be099;
+                outline: unset;
             }
 
             input[type="color"] {
