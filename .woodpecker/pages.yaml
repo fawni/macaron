@@ -1,0 +1,22 @@
+when:
+  branch: master
+  event: [push, manual]
+  path:
+    include:
+      - "dist/**/*"
+      - "demo.html"
+
+steps:
+  pages:
+    image: alpine/git
+    secrets: [CODEBERG_TOKEN]
+    commands:
+      - git config --global user.name "maid"
+      - git config --global user.email "maid@rinici.de"
+      - git checkout pages
+      - git checkout master dist/ demo.html
+      - mv demo.html index.html
+      - git add .
+      - git commit -m "deploy twink/macaron@$(git rev-parse --short master)"
+      - git remote set-url origin https://$CODEBERG_TOKEN@codeberg.org/twink/macaron.git
+      - git push
