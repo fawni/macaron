@@ -4,7 +4,7 @@ minimalistic toast notifications
 
 ![scrot](.meta/scrot.png)
 
-**[demo](https://twink.codeberg.page/macaron)**
+this tiny **[demo](https://twink.codeberg.page/macaron)** demonstrates some of its features!
 
 ## usage
 
