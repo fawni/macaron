@@ -19,81 +19,110 @@
             href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
         />
         <link rel="stylesheet" type="text/css" href="../dist/macaron.css" />
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/sakura.css/css/sakura-dark.css"
-            type="text/css"
-        />
-
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/@csstools/normalize.css"
-        />
-
         <style>
-            body,
-            h1,
-            input,
-            button {
-                font-family: "Nunito", sans-serif;
+            :root {
+                font-family: Nunito, sans-serif;
+                font-size: 16px;
+                background: #e8b197;
+                color: #d8d0d5;
             }
 
-            button {
+            body {
+                max-width: 800px;
+                margin: 4em auto;
+                background: #151515;
+                padding: 0.5em 1em 2em;
+                box-shadow: 0.5em 1em #303030;
+            }
+
+            input, button {
+                border: none;
+                font-family: inherit;
                 font-weight: bold;
+                padding: 0.25em 0.5em;
                 border-radius: 4px;
+                background: #202020;
+                color: inherit;
+                margin: 0.1em 0;
+            }
+
+            input[type="color"] {
+                border: none;
+                padding: 0;
+                height: 1em;
+                width: 1em;
             }
         </style>
         <script src="../dist/macaron.js" type="text/javascript"></script>
     </head>
     <body>
         <h1>macaron 🍩</h1>
-        <div>simple macaron demo</div>
-
-        <br />
-        <hr />
-        <br />
+        <div>simple minimalistic toast notifications</div>
 
         <div>
             <input type="text" id="message" placeholder="message" />
+
+            <button
+                onclick="macaron.info(message.value || 'this is a macaron')"
+            >
+                info
+            </button>
+            <button
+                onclick="macaron.success(message.value || 'this is a macaron')"
+            >
+                success
+            </button>
+            <button
+                onclick="macaron.warn(message.value || 'this is a macaron')"
+            >
+                warn
+            </button>
+            <button
+                onclick="macaron.error(message.value || 'this is a macaron', { action: () => console.log('bad boy!') })"
+            >
+                error
+            </button>
         </div>
-
-        <button
-            onclick="macaron.info(document.getElementById('message').value || 'this is a macaron')"
-        >
-            info
-        </button>
-        <button
-            onclick="macaron.success(document.getElementById('message').value || 'this is a macaron')"
-        >
-            success
-        </button>
-        <button
-            onclick="macaron.warn(document.getElementById('message').value || 'this is a macaron')"
-        >
-            warn
-        </button>
-        <button
-            onclick="macaron.error(document.getElementById('message').value || 'this is a macaron', {action: () => console.log('bad boy!')})"
-        >
-            error
-        </button>
-
-        <br />
-        <br />
 
         <div>
             <input
                 type="number"
                 id="timeout"
                 placeholder="timeout (milliseconds)"
+                onchange="macaron.setDefaultTimeout(timeout.value || 3 * 1000)"
             />
-        </div>
-        <button
-            onclick="macaron.setDefaultTimeout(document.getElementById('timeout').value || 3 * 1000)"
-        >
-            done
-        </button>
 
-        <script src="../dist/index.js" type="text/javascript"></script>
+            <br />
+            <br />
+            <code id="colors">
+                --macaron-bg: <span>#151515</span> <input type="color" value="#151515" />;
+                <br />
+                --macaron-fg: <span>#d8d0d5</span> <input type="color" value="#d8d0d5" />;
+                <br />
+                --macaron-shadow: <span>#151515</span>
+                <input type="color" value="#151515" />; <br />
+                <br />
+                --macaron-info: <span>#d895ee</span> <input type="color" value="#d895ee" />;
+                <br />
+                --macaron-success: <span>#9be099</span> <input type="color" value="#9be099" />;
+                <br />
+                --macaron-eror: <span>#ee9598</span> <input type="color" value="#ee9598" />;
+                <br />
+                --macaron-warn: <span>#e8d097</span> <input type="color" value="#e8d097" />;
+                <br />
+            </code>
+            <script>
+                const vars = ["bg", "fg", "shadow", "info", "success", "error", "warn"];
+                const text = colors.querySelectorAll("span");
+                const inputs = colors.querySelectorAll("input");
+
+                for (const [i, input] of inputs.entries())
+                    input.onchange = () => {
+                        text[i].innerText = input.value;
+                        document.body.style.setProperty(`--macaron-${vars[i]}`, input.value);
+                    };
+
+            </script>
+        </div>
     </body>
 </html>
