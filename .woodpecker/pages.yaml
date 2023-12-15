@@ -13,6 +13,7 @@ steps:
     commands:
       - git config --global user.name "maid"
       - git config --global user.email "maid@rinici.de"
+      - git fetch origin pages
       - git checkout pages
       - git checkout master dist/ demo.html
       - mv demo.html index.html
