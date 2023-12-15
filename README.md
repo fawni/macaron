@@ -2,6 +2,10 @@
 
 minimalistic toast notifications
 
+![scrot](.meta/scrot.png)
+
+**[demo](https://twink.codeberg.page/macaron)**
+
 ## usage
 
 1. link to `macaron.css`:
@@ -20,8 +24,6 @@ minimalistic toast notifications
 macaron.success("hello from macaron!");
 macaron.warn("do NOT touch my macarons");
 ```
-
-refer to the [demo](demo/index.html) for more info.
 
 ## license
 
