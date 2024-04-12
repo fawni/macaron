@@ -13,11 +13,13 @@ this tiny **[demo](https://twink.codeberg.page/macaron)** demonstrates some of i
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@twinking/macaron/dist/macaron.css" type="text/css"/>
 ```
+
 2. link to `macaron.js`
 
 ```html
 <script src="https://unpkg.com/@twinking/macaron/dist/macaron.js" type="text/javascript"></script>
 ```
+
 3. use macaron
 
 ```js

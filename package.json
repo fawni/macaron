@@ -1,18 +1,22 @@
 {
-    "name": "@twinking/macaron",
-    "version": "0.1.5",
-    "license": "Apache-2.0",
-    "author": "fawn <fawn@rinici.de>",
-    "contributors": [
-        "rini <rini@rinici.de>"
-    ],
-    "scripts": {
-        "sass": "sass --no-source-map src:dist --style compressed",
-        "build": "esbuild src/macaron.ts --minify --bundle --outdir=dist --global-name=macaron",
-        "bundle": "pnpm build && pnpm sass"
-    },
-    "devDependencies": {
-        "esbuild": "^0.19.9",
-        "sass": "^1.69.5"
-    }
+  "name": "@twinking/macaron",
+  "version": "0.1.6",
+  "license": "Apache-2.0",
+  "author": "fawn <fawn@rinici.de>",
+  "contributors": [
+    "rini <rini@rinici.de>"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/macaron.js",
+  "scripts": {
+    "sass": "sass --no-source-map src:dist --style compressed",
+    "build": "esbuild src/macaron.ts --minify --bundle --outdir=dist --global-name=macaron",
+    "bundle": "bun run build && bun sass"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.9",
+    "sass": "^1.69.5"
+  }
 }

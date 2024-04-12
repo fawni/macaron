@@ -4,11 +4,12 @@ _default:
     @just --list
 
 build:
-    pnpm i
-    pnpm bundle
+    bun i
+    bun bundle
 
 watch:
-    pnpm build --watch
+    bun run build --watch
 
 publish: (build)
+    @# TODO: use bun
     pnpm publish --access public
